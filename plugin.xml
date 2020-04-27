@@ -11,7 +11,7 @@
     <issue>https://github.com/wrobins/cordova-plugin-msal/issues</issue>
     <engines>
         <engine name="cordova" version=">=7.0.0"/>
-    </engines> 
+    </engines>
     <js-module src="www/msalplugin.js" name="msalPlugin">
         <clobbers target="cordova.plugins.msalPlugin" />
     </js-module>
@@ -115,6 +115,13 @@
         <header-file src="src/ios/AppDelegate+MsalCallback.h" />
         <source-file src="src/ios/MsalPlugin.m" />
         <source-file src="src/ios/AppDelegate+MsalCallback.m" />
-        <framework src="src/ios/MSAL.framework" embed="true" custom="true" />
+        <podspec>
+          <config>
+            <source url="https://github.com/CocoaPods/Specs.git"/>
+          </config>
+          <pods use-frameworks="true">
+            <pod name="MSAL" />
+          </pods>
+        </podspec>
     </platform>
 </plugin>
